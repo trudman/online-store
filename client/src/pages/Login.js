@@ -5,7 +5,7 @@ import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 function Login() {
-const [formState, setFormState]= useState ({email:'', pasword})
+const [formState, setFormState]= useState ({email:'', pasword:''});
 const [login, { error }] = useMutation(LOGIN);
 
 const handleFormSubmit = async (event) => {
@@ -27,7 +27,43 @@ const handleFormSubmit = async (event) => {
       [name]: value,
     });
   };
+  return (
+    <div>
+      <Link to="/signup">← Go to Signup</Link>
 
+      <h2>Login</h2>
+      <form onSubmit={handleFormSubmit}>
+        <div>
+          <label htmlFor="email">Email address:</label>
+          <input
+            placeholder="Email..."
+            name="email"
+            type="email"
+            id="email"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="pwd">Password:</label>
+          <input
+            placeholder="Password.."
+            name="password"
+            type="password"
+            id="pwd"
+            onChange={handleChange}
+          />
+        </div>
+        {error ? (
+          <div>
+            <p>The provided credentials are incorrect</p>
+          </div>
+        ) : null}
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  );
 }
 
 export default Login;
