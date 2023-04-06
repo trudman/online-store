@@ -20,6 +20,14 @@ const handleFormSubmit = async (event) => {
       console.log(e);
     }
   };
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
 }
 
 export default Login;
