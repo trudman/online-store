@@ -55,7 +55,7 @@ const handleFormSubmit = async (event) => {
         </div>
         {error ? (
           <div>
-            <p>The provided credentials are incorrect</p>
+            <p>The login information entered is invalid.</p>
           </div>
         ) : null}
         <div>
