@@ -9,11 +9,9 @@ const [login, { error }] = useMutation(LOGIN);
 
 const handleFormSubmit = async (event) => {
     event.preventDefault();
+    const { email, password } = formState;
     try {
-      const response = await login({
-        variables: { email: formState.email, password: formState.password },
-      });
-      const token = response.data.login.token;
+      const token = (await login({ variables: { email, password } })).data.login.token;
       Auth.login(token);
     } catch (e) {
       console.log(e);
