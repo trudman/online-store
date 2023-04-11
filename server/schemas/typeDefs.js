@@ -1,5 +1,6 @@
-const { gql } = require('apollo-server-express');
-const typeDefs = gql`
+import { gql } from 'apollo-server-express';
+
+export default gql`
   type Category {
     _id: ID
     name: String

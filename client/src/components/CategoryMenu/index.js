@@ -40,7 +40,7 @@ function CategoryMenu() {
   };
 
   return (
-      <div class="left-section">
+      <div className="left-section">
         <h2>Select a category</h2>
         {categories.map((item) => (
           <button

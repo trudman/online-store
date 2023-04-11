@@ -1,4 +1,2 @@
-const typeDefs = require('./typeDefs');
-const resolvers = require('./resolvers');
-
-module.exports = { typeDefs, resolvers };
+export * as typeDefs from "./typeDefs.js";
+export * as resolvers from "./resolvers.js";
