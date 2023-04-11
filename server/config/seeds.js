@@ -21,7 +21,7 @@ db.once('open', async () => {
       name: 'Pre built PC',
       description:
         'The best PC there was 20 years ago! Will run anything with ease.',
-      image: 'jpg',  
+      image: 'png',  
       category: categories[0]._id,
       price: 1500,
       quantity: 5
