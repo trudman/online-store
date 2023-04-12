@@ -66,18 +66,23 @@ const resolvers = {
 
     // Define checkout query which takes no arguments and returns a Stripe session ID for checkout
     checkout: async (parent, args, context) => {
+      console.log("Backend hit")
       const url = new URL(context.headers.referer).origin;
       const order = new Order({ products: args.products });
       const line_items = [];
+      //console.log(url);
 
       const { products } = await order.populate('products');
 
       for (let i = 0; i < products.length; i++) {
+        //console.log(products[i])
         const product = await stripe.products.create({
           name: products[i].name,
           description: products[i].description,
           images: [`${url}/images/${products[i].image}`],
         });
+        
+      
 
         const price = await stripe.prices.create({
           product: product.id,
@@ -90,6 +95,7 @@ const resolvers = {
           quantity: 1,
         });
       }
+      console.log(line_items);
 
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
@@ -98,6 +104,7 @@ const resolvers = {
         success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${url}/`,
       });
+      console.log(session)
 
       return { session: session.id };
     },

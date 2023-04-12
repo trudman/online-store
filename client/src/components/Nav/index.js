@@ -1,74 +1,57 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
-import SignUpForm from './SignupForm';
-import LoginForm from './LoginForm';
+import React from "react";
+import Auth from "../../utils/auth";
+import { Link } from "react-router-dom";
 
-import Auth from '../../utils/auth';
+function Nav() {
 
-const AppNavbar = () => {
-  const [showModal, setShowModal] = useState(false);
+  function showNavigation() {
+    if (Auth.loggedIn()) {
+      return (
+        <ul className="flex-row">
+          <li className="mx-1">
+            <Link to="/orderHistory">
+              Order History
+            </Link>
+          </li>
+          <li className="mx-1">
+            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+            <a href="/" onClick={() => Auth.logout()}>
+              Logout
+            </a>
+          </li>
+        </ul>
+      );
+    } else {
+      return (
+        <ul className="flex-row">
+          <li className="mx-1">
+            <Link to="/signup">
+              Signup
+            </Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/login">
+              Login
+            </Link>
+          </li>
+        </ul>
+      );
+    }
+  }
 
   return (
-    <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
-        <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
-            <h2>Online Store</h2>
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls='navbar' />
-          <Navbar.Collapse id='navbar'>
-            <Nav className='ml-auto'>
-              <Nav.Link as={Link} to='/'>
-                Home
-              </Nav.Link>
-              {Auth.loggedIn() ? (
-                <>
-                  <Nav.Link as={Link} to='/profile'>
-                    Profile
-                  </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
-                </>
-              ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Signup</Nav.Link>
-              )}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+    <header className="flex-row px-1">
+      <h1>
+        <Link to="/">
+        store
+        </Link>
+      </h1>
 
-      <Modal
-        size='lg'
-        show={showModal}
-        onHide={() => setShowModal(false)}
-        aria-labelledby='signup-modal'
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id='signup-modal'>
-            <Tab.Container defaultActiveKey='login'>
-              <Nav variant='pills'>
-                <Nav.Item>
-                  <Nav.Link eventKey='login'>Login</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey='signup'>Signup</Nav.Link>
-                </Nav.Item>
-              </Nav>
-            </Tab.Container>
-          </Modal.Title>
-        </Modal.Header>
-
-        <Tab.Content>
-          <Tab.Pane eventKey='login'>
-            <LoginForm handleModalClose={() => setShowModal(false)} />
-          </Tab.Pane>
-          <Tab.Pane eventKey='signup'>
-            <SignUpForm handleModalClose={() => setShowModal(false)} />
-          </Tab.Pane>
-        </Tab.Content>
-      </Modal>
-    </>
+      <nav>
+        {showNavigation()}
+      </nav>
+    </header>
   );
 }
 
-export default AppNavbar;
+export default Nav;

@@ -7,9 +7,10 @@ import Cart from "../components/Cart";
 const Home = () => {
   return (
     <div className="container">
+     <Cart />
       <CategoryMenu />
       <ProductList />
-      <Cart />
+     
     </div>
   );
 };

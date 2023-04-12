@@ -17,15 +17,15 @@ db.once('open', async () => {
   await Product.deleteMany();
 
   const products = await Product.insertMany([
-    {
-      name: 'Pre built PC',
-      description:
-        'The best PC there was 20 years ago! Will run anything with ease.',
-      image: 'jpg',  
-      category: categories[0]._id,
-      price: 1500,
-      quantity: 5
-    },
+    // {
+    //   name: 'Pre built PC',
+    //   description:
+    //     'The best PC there was 20 years ago! Will run anything with ease.',
+    //   image: 'LianLi.jpg',  
+    //   category: categories[0]._id,
+    //   price: 1500,
+    //   quantity: 5
+    // },
     {
       name: 'Mutator RC car by Tyco!!',
       description:
