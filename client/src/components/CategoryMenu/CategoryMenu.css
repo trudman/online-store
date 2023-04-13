@@ -7,12 +7,14 @@
 .title {
   margin-bottom: 1.5rem;
   font-weight: 500;
+  
 }
 
 .button-container {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 20px;;
+  margin-bottom: 20px;
+  justify-content: center;
 }
 .button {
   margin-right: 10px;
