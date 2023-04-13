@@ -28,22 +28,20 @@ function Login() {
       [name]: value,
     });
   };
-  return (
-    <div className="container mx-auto d-block">
-      <Card
-        className="bg-dark text-white text-center"
-        style={{ width: "1000px", height: "700px" }}
-      >
-        <Card.Title className="text-center">Login </Card.Title>
+  return ( 
+  <div className="d-flex justify-content-center align-items-center vh-100">       
+      <Card  className="bg-dark text-white text-center">
+      <Card.Title className="text-center">Login </Card.Title>
+        <div style={{ display: "flex", justifyContent: "center" }}>
         <Card.Img
-          className="mb-5"
-          src={loginImg}
-          style={{ width: "100%", height: "400px", objectFit: "cover" }}
-        />
-        <Form onSubmit={handleFormSubmit} className="w-100">
-          <Form.Group controlId="email" className="mb-5 mx-auto">
+            src={loginImg}
+            style={{ width: "100%", height: "500px" , objectFit: "cover" }}
+          />
+           </div>
+        <Form onSubmit={handleFormSubmit} className="w-100 mb-5 mt-3">
+          <Form.Group controlId="email" className="mb-6 mx-auto mt-3">
             <Form.Label>Email address</Form.Label>
-            <input
+            <Form.Control
               type="email"
               placeholder="Enter Email"
               name="email"
@@ -51,9 +49,9 @@ function Login() {
               onChange={handleChange}
             />
           </Form.Group>
-          <Form.Group controlId="password" className="mb-5 mx-auto">
+          <Form.Group controlId="password" className="mb-5 mx-auto mt-3">
             <Form.Label>Password</Form.Label>
-            <input
+            <Form.Control
               type="password"
               placeholder="Enter Password"
               name="password"
@@ -64,9 +62,11 @@ function Login() {
               <p className="error-text">Incorrect email or password</p>
             ) : null}
           </Form.Group>
+          <div className="d-flex justify-content-center mt-3">
           <Button variant="primary" type="submit">
             Submit
           </Button>
+          </div>
         </Form>
       </Card>
     </div>
