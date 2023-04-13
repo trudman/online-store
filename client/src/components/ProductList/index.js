@@ -47,7 +47,7 @@ function ProductList() {
     <div className="right-section">
       <h2>Products</h2>
       {state.products.length ? (
-        <div>
+        <div className="row mx-auto">
           {filterProducts().map((product) => (
             <ProductItem
               key={product._id}

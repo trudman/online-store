@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 
 function Nav() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   function handleLogout() {
     Auth.logout();
   }
@@ -14,15 +16,11 @@ function Nav() {
           <button
             className="navbar-toggler"
             type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <div className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`} id="navbarNav">
             <ul className="navbar-nav mr-auto"></ul>
             <ul className="navbar-nav">
               {Auth.loggedIn() ? (
@@ -33,10 +31,7 @@ function Nav() {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <button
-                      className="btn btn-outline-primary my-2 my-sm-0"
-                      onClick={handleLogout}
-                    >
+                    <button className="btn btn-outline-primary my-2 my-sm-0" onClick={handleLogout}>
                       Logout
                     </button>
                   </li>
@@ -63,8 +58,8 @@ function Nav() {
         <div className="container">
           <h1 className="display-4">Welcome to the Junk Store!</h1>
           <p className="lead">
-            We sell all kinds of weird and wonderful things - from vintage
-            electronics to antique furniture. Come browse our collection today!
+            We sell all kinds of weird and wonderful things - from vintage electronics to antique
+            furniture. Come browse our collection today!
           </p>
         </div>
       </div>
