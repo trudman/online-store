@@ -23,7 +23,7 @@ db.once('open', async () => {
         'The Vengeance PC is stylish, silent, and has high-end performance that keeps my stream running smooth with plenty of power to spare. Has current PC parts. Trust us.',
       image: 'corsair.png',  
       category: categories[0]._id,
-      price: 2359.99,
+      price: 999.99,
       quantity: 5
     },
     {
@@ -32,7 +32,7 @@ db.once('open', async () => {
         'LED Curved 4K UHD Gaming Monitor.',
       image: 'odysseyArk.png',  
       category: categories[0]._id,
-      price: 3099.99,
+      price: 399.99,
       quantity: 5
     },
     {
@@ -77,7 +77,7 @@ db.once('open', async () => {
       description:
         'Includes 3-seater couch, loveseat and single chair, with 5 pillows, decor of button and copper nail on arms and back.',
       image: 'merax.png',
-      price: 1999.99,
+      price: 999.99,
       quantity: 10
     },
     {
@@ -95,7 +95,7 @@ db.once('open', async () => {
       description:
         '96x36 wall mounted vanity mirror with backlit and front light with dimmable 3 colors anti-fog smart memory vertical/horizontal.',
       image: 'waterpar.png',
-      price: 1199.99,
+      price: 199.99,
       quantity: 12
     },
     {
@@ -158,7 +158,7 @@ db.once('open', async () => {
       description:
         'The Black Diamond billiard table is an affordable, contemporary billiard table with a black laminate and has metal corner caps & trim. The laminate is burn and scratch-resistant.',
       image: 'billiards.png',
-      price: 2499.99,
+      price: 499.99,
       quantity: 3
     },
     {
@@ -194,7 +194,7 @@ db.once('open', async () => {
       description:
         '5600W dual motor max speed 50MPH, 60V33AH lithium battery 60 mile range, 11" vacuum off-road tires and a high power dual drive.',
       image: 'scooter.png',
-      price: 1649.99,
+      price: 649.99,
       quantity: 5
     },
     {
