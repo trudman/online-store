@@ -1,0 +1,21 @@
+.cart {
+    /* Remove the background and border styles */
+    background: none;
+    border: none;
+    /* Add padding and margin to the modal body */
+    padding: 20px;
+    margin: 0;
+  }
+  
+  
+  /* Style the cart-closed button */
+  .cart-closed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 36px;
+    cursor: pointer;
+  }
+
+ 
+  

@@ -8,6 +8,7 @@ import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
@@ -16,7 +17,7 @@ const Cart = () => {
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
   useEffect(() => {
-    console.log(data)
+    console.log(data);
     if (data) {
       stripePromise.then((res) => {
         res.redirectToCheckout({ sessionId: data.checkout.session });
@@ -48,7 +49,6 @@ const Cart = () => {
   }
 
   function submitCheckout() {
-    console.log('Submit hit');
     const productIds = [];
 
     state.cart.forEach((item) => {
@@ -56,7 +56,6 @@ const Cart = () => {
         productIds.push(item._id);
       }
     });
-    console.log(productIds);
 
     getCheckout({
       variables: { products: productIds },
@@ -74,32 +73,50 @@ const Cart = () => {
   }
 
   return (
-    <div className="cart">
+    <div
+      className="cart border rounded p-3"
+      style={{ backgroundColor: '#718099' }}
+    >
       <div className="close" onClick={toggleCart}>
-        [close]
+        [X]
       </div>
       <h2>Cart</h2>
       {state.cart.length ? (
         <div>
           {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
+            <div key={item._id} className="row mb-3">
+              <div className="col-3">
+                <img
+                  className="img-fluid"
+                  src={`/images/${item.image}`}
+                  alt={item.name}
+                  style={{ height: '200px', width: '200px' }}
+                />
+              </div>
+              <div className="col-9">
+                <CartItem item={item} />
+              </div>
+            </div>
           ))}
 
-          <div className="flex-row space-between">
+          <div className="d-flex justify-content-between align-items-center">
             <strong>Total: ${calculateTotal()}</strong>
 
             {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
+              <button className="btn btn-primary" onClick={submitCheckout}>
+                Checkout
+              </button>
             ) : (
-              <span>(To checkout please log in)</span>
+              <a href="/login">
+              <button className="btn btn-primary">
+                Login To Checkout
+              </button>
+            </a>
             )}
           </div>
         </div>
       ) : (
-        <h3>
-         
-          Your cart is empty!
-        </h3>
+        <h3>Your cart is empty!</h3>
       )}
     </div>
   );
