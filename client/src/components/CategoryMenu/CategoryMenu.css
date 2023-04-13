@@ -9,9 +9,15 @@
   font-weight: 500;
 }
 
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;;
+}
 .button {
+  margin-right: 10px;
   display: block;
-  width: 100%;
+  width: fit-content;
   text-align: left;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   margin-top: 10px;
