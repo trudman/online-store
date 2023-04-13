@@ -20,14 +20,11 @@ function OrderHistory() {
         {user ? (
           <>
             <h2>
-              {user.firstName} {user.lastName}
-              This is your order history
+              {user.firstName} {user.lastName} this is your order history:
             </h2>
             {user.orders.map((order) => (
               <div key={order._id}>
-                <h3>
-                  {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
-                </h3>
+                <h3>{new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</h3>
                 <div>
                   {order.products.map(({ _id, image, name, price }, index) => (
                     <div key={index}>
