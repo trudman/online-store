@@ -34,7 +34,7 @@ const CartItem = ({ item }) => {
   }
 
   return (
-    <div className="card rounded" style={{ backgroundColor: '#c5cad4' }}>
+    <div className="card rounded item-card" style={{ backgroundColor: '#c5cad4' }}>
       <div className="card-body">
         <div className="flex-row">
           <div>
