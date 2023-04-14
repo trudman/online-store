@@ -29,8 +29,8 @@ function Login() {
     });
   };
   return ( 
-  <div className="d-flex justify-content-center align-items-center vh-100">       
-      <Card  className="bg-dark text-white text-center">
+  <div className="d-flex justify-content-center align-items-center  vh-100 mt-5 mx-auto">       
+      <Card  className="bg-dark text-white text-center mt-5 mx-auto">
       <Card.Title className="text-center">Login </Card.Title>
         <div style={{ display: "flex", justifyContent: "center" }}>
         <Card.Img
@@ -39,11 +39,11 @@ function Login() {
           />
            </div>
         <Form onSubmit={handleFormSubmit} className="w-100 mb-5 mt-3">
-          <Form.Group controlId="email" className="mb-6 mx-auto mt-3">
+          <Form.Group controlId="email" className="mb-4 mx-auto mt-3">
             <Form.Label>Email address</Form.Label>
             <Form.Control
               type="email"
-              placeholder="Enter Email"
+              placeholder="Enter Email..."
               name="email"
               id="email"
               onChange={handleChange}
@@ -53,7 +53,7 @@ function Login() {
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
-              placeholder="Enter Password"
+              placeholder="Enter Password..."
               name="password"
               id="pwd"
               onChange={handleChange}

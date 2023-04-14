@@ -55,10 +55,12 @@ function Nav() {
           </div>
         </nav>
       </header>
-      <div className="jumbotron jumbotron-fluid">
+      <div className="jumbotron jumbotron-fluid ">
         <div className="container">
+
           <h1 className="display-4 text-center">Welcome to the Junk Store!</h1>
-          <p className="lead text-center">
+          <p className="lead text-center mb-5">
+
             We sell all kinds of weird and wonderful things - from vintage electronics to antique
             furniture. Come browse our collection today!
           </p>
