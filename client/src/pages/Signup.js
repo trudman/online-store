@@ -29,13 +29,13 @@ function Signup() {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
-      <Card className="bg-dark text-white text-center">
-        <Card.Title className="text-center">Sign Up </Card.Title>
+    <div className="d-flex justify-content-center align-items-center vh-100 mt-5 mx-auto">
+      <Card className=" bg-dark text-white text-center mt-5 mx-auto" >
+        <Card.Title className="text-center ">Sign Up </Card.Title>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Card.Img
             src={signupImg}
-            style={{ width: "100%", height: "500px", objectFit: "cover" }}
+            style={{ width: "100%", height: "500px" , objectFit: "cover"}}
           />
         </div>
         <Form onSubmit={handleFormSubmit} className="w-100 mb-5">
@@ -74,7 +74,7 @@ function Signup() {
           <Form.Group controlId="password" className=" mx-auto">
             <Form.Label>Password</Form.Label>
             <Form.Control
-              placeholder="Password"
+              placeholder="Password..."
               name="password"
               type="password"
               id="pwd"
