@@ -86,12 +86,14 @@ const Cart = () => {
           {state.cart.map((item) => (
             <div key={item._id} className="row mb-3">
               <div className="col-3">
-                <img
-                  className="img-fluid"
-                  src={`/images/${item.image}`}
-                  alt={item.name}
-                  style={{ height: '200px', width: '200px' }}
-                />
+                <a href={`/products/${item._id}`}>
+                  <img
+                    className="img-fluid"
+                    src={`/images/${item.image}`}
+                    alt={item.name}
+                    style={{ height: '200px', width: '200px' }}
+                  />
+                </a>
               </div>
               <div className="col-9">
                 <CartItem item={item} />
@@ -108,10 +110,8 @@ const Cart = () => {
               </button>
             ) : (
               <a href="/login">
-              <button className="btn btn-primary">
-                Login To Checkout
-              </button>
-            </a>
+                <button className="btn btn-primary">Login To Checkout</button>
+              </a>
             )}
           </div>
         </div>

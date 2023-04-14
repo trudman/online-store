@@ -6,7 +6,7 @@ db.once('open', async () => {
 
   const categories = await Category.insertMany([
     { name: 'Electronics' },
-    { name: 'Furniture & Decour' },
+    { name: 'Furniture & Decor' },
     { name: 'Games' },
     { name: 'Sports & Outdoors' },
     { name: 'Toys' }
@@ -254,7 +254,7 @@ db.once('open', async () => {
     password: 'password12345',
     orders: [
       {
-        products: [products[0]._id, products[0]._id, products[1]._id]
+        products: [products[0]._id, products[1]._id, products[4]._id, products[7]._id, products[9]._id, products[10]._id]
       }
     ]
   });

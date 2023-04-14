@@ -12,12 +12,13 @@ function Nav() {
   return (
     <div>
       <header>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-secondary">
           <button
             className="navbar-toggler"
             type="button"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle navigation">
+            aria-label="Toggle navigation"
+          >
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`} id="navbarNav">
@@ -26,12 +27,12 @@ function Nav() {
               {Auth.loggedIn() ? (
                 <>
                   <li className="nav-item mr-3">
-                    <Link className="nav-link" to="/orderHistory">
+                    <Link className="nav-link text-white" to="/orderHistory">
                       Order History
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <button className="btn btn-outline-primary my-2 my-sm-0" onClick={handleLogout}>
+                    <button className="btn btn-primary my-2 my-sm-0 mr-3" onClick={handleLogout}>
                       Logout
                     </button>
                   </li>
@@ -56,8 +57,10 @@ function Nav() {
       </header>
       <div className="jumbotron jumbotron-fluid ">
         <div className="container">
-          <h1 className="display-4">Welcome to the Junk Store!</h1>
-          <p className="lead mb-5" >
+
+          <h1 className="display-4 text-center">Welcome to the Junk Store!</h1>
+          <p className="lead text-center mb-5">
+
             We sell all kinds of weird and wonderful things - from vintage electronics to antique
             furniture. Come browse our collection today!
           </p>
